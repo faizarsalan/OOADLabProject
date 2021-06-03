@@ -6,7 +6,6 @@ public class Transaction {
 	private int voucherID;
 	private int employeeID;
 	private int totalPrice;
-	private <TransactionItem> listTransactionItem;
 	
 	public insertTransaction() {
 		

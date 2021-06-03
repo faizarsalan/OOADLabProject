@@ -13,8 +13,8 @@ public class Voucher {
 		
 	}
 	
-	public getVoucher(int voucherID) {
-		
+	public int getVoucher(int voucherID) {
+		return voucherID;
 	}
 	
 	public deleteVoucher(int voucherID) {

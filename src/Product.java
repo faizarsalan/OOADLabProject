@@ -15,8 +15,8 @@ public class Product {
 		
 	}
 	
-	public getProduct(int productID) {
-		
+	public int getProduct(int productID) {
+		return productID;
 	}
 	
 	public updateProduct() {

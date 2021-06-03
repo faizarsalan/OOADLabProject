@@ -11,7 +11,7 @@ public class Employee {
 	private String password;
 	
 	
-	public insertEmployee() {
+	public void insertEmployee() {
 		
 	}
 	
@@ -19,8 +19,8 @@ public class Employee {
 		
 	}
 	
-	public getEmployee(String username) {
-		
+	public String getEmployee(String username) {
+		return name;
 	}
 	
 	public updateEmployee() {

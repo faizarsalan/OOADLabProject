@@ -8,8 +8,8 @@ public class Position {
 		
 	}
 	
-	public getPosition(int positionID) {
-		
+	public int getPosition(int positionID) {
+		return positionID;
 	}
 	
 	
