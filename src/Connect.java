@@ -17,7 +17,7 @@ public class Connect {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			
-			con = DriverManager.getConnection("jdbc:mysql://localhost:3307/restaurant_db", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/test2", "root", "");
 			
 			stat = con.createStatement();
 			

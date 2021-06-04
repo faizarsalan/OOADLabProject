@@ -9,5 +9,5 @@ public class MainThread {
 	Vector<Voucher> vouchList = new Vector<>();
 	Vector<Transaction> tranList = new Vector<>();
 	
-
+	Connect con;
 }
