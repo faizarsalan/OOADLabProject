@@ -1,14 +1,15 @@
 
+
 import java.util.*;
 
 public class main {
 	
-	Scanner scan = new Scanner(System.in);
+	public main() {
+		Connect con = new Connect();
+		homeScene hS = new homeScene();
+	}
 	
-	Vector<Employee> empList = new Vector<>();
-	Vector<Product> prodList = new Vector<>();
-	Vector<Voucher> vouchList = new Vector<>();
-	Vector<Transaction> tranList = new Vector<>();
-	
-	
+	public static void main(String[] args) {
+		new main();
+	}
 }

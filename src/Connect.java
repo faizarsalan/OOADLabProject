@@ -27,6 +27,14 @@ public class Connect {
 			e.printStackTrace();
 			System.out.println("Connect fail");
 		}
+		try {
+			rs = stat.executeQuery("SELECT * FROM test2");
+			rsm = rs.getMetaData();
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		System.out.println(rs);
 	}
 	
 	public ResultSet execQuery(String query) {
@@ -36,6 +44,7 @@ public class Connect {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			System.out.println("Fail to get data");
 		}
 		
 		return rs;
