@@ -6,7 +6,7 @@ import java.util.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
-public class productFrame extends JInternalFrame implements MouseListener, ActionListener {
+public class viewIntFrame extends JInternalFrame implements MouseListener, ActionListener {
 	
 	JPanel northPanel, southPanel, centerPanel;
 	JTable table;
@@ -18,7 +18,7 @@ public class productFrame extends JInternalFrame implements MouseListener, Actio
 	JButton insert, update, delete;
 	Connect con;
 	
-	public productFrame() {
+	public viewIntFrame() {
 		
 		con = new Connect();
 		northPanel = new JPanel();
@@ -81,6 +81,40 @@ public class productFrame extends JInternalFrame implements MouseListener, Actio
 		this.setClosable(true);
 		this.setTitle("Product internal frame");
 		this.setVisible(true);
+	}
+	
+	public void genTable() {
+		Object[] column = {"ID", "Name", "Description", "Price", "Stock"};
+		
+		dtm = new DefaultTableModel(column, 0);
+		
+		System.out.println("debug");
+		con.rs = con.execQuery("SELECT * FROM test2");
+		System.out.println("debug2");
+		
+		try {
+			while(con.rs.next()) {
+				rowData = new Vector<>();
+				
+				int id = con.rs.getInt("id");
+				String name = con.rs.getString("name");
+				String desc = con.rs.getString("desc");
+				int price = con.rs.getInt("price");
+				int stock = con.rs.getInt("stock");
+				
+				rowData.add(id);
+				rowData.add(name);
+				rowData.add(desc);
+				rowData.add(price);
+				rowData.add(stock);
+				
+				dtm.addRow(rowData);
+			}
+		}
+		catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+		table.setModel(dtm);
 	}
 	
 
