@@ -6,7 +6,7 @@ public class main {
 	
 	public main() {
 		Connect con = new Connect();
-		homeScene hS = new homeScene();
+		menuFrame mF = new menuFrame();
 	}
 	
 	public static void main(String[] args) {

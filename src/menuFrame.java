@@ -1,11 +1,109 @@
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
+import javax.swing.event.MenuEvent;
+import javax.swing.event.MenuListener;
 
 public class menuFrame extends JFrame implements MenuListener, ActionListener {
 	
 	JMenuBar menuBar;
+	JMenu homeMenu, logoutMenu;
+	JMenuItem insertMenu, manageMenu, viewMenu;
+	JSeparator separator1;
+	viewIntFrame viewIntFrame;
+	insertFrame, insertFrame;
+	
+	public menuFrame() {
+		menuBar = new JMenuBar();
+		homeMenu = new JMenu("Home");
+		logoutMenu = new JMenu("Logout");
+		logoutMenu.addMenuListener(this);
+		
+		insertMenu = new JMenuItem("Insert Menu");
+		insertMenu.addActionListener(this);
+		
+		manageMenu = new JMenuItem("Manage Menu");
+		manageMenu.addActionListener(this);
+		
+		viewMenu = new JMenuItem("View Menu");
+		viewMenu.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("View Menu 2\n");
+				if(viewIntFrame != null) {
+					viewIntFrame.dispose();
+				}
+				add(viewIntFrame = new viewIntFrame());
+			}
+		});
+		
+		separator1 = new JSeparator();
+		
+		
+		homeMenu.add(insertMenu);
+		homeMenu.add(manageMenu);
+		homeMenu.add(separator1);
+		homeMenu.add(viewMenu);
+		
+		menuBar.add(homeMenu);
+		menuBar.add(logoutMenu);
+		
+		setJMenuBar(menuBar);
+		
+		setResizable(false);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setTitle("Home");
+		setSize(750,780);
+		setLocationRelativeTo(null);
+		setVisible(true);
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource() == insertMenu) {
+			System.out.println("Insert menu\n");
+			if(insertInternalFrame != null) {
+				insertInternalFrame.dispose();
+			}
+			add(insertInternalFrame = new insertInternalFrame());
+		}
+		
+		if(e.getSource() == manageMenu) {
+			System.out.println("Manage menu\n");
+		}
+		if(e.getSource() == viewMenu) {
+			System.out.println("View menu\n");
+		}
+	}
+	@Override
+	public void menuSelected(MenuEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==logoutMenu) {
+			System.out.println("Logout menu is selected");
+			
+			//JOptionPane.showMessageDialog(null, "Logout");
+			int result = JOptionPane.showConfirmDialog(null, "Are you sure?");
+			if(result == 0) {
+				this.dispose();
+				RegisterPage rf = new RegisterPage();
+			}
+		}
+	}
+	@Override
+	public void menuDeselected(MenuEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void menuCanceled(MenuEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	
 	
 
 }
