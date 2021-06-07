@@ -14,7 +14,7 @@ public class menuFrame extends JFrame implements MenuListener, ActionListener {
 	JMenuItem insertMenu, manageMenu, viewMenu;
 	JSeparator separator1;
 	viewIntFrame viewIntFrame;
-	insertFrame, insertFrame;
+	insertIntFrame insertIntFrame;
 	
 	public menuFrame() {
 		menuBar = new JMenuBar();
@@ -66,10 +66,10 @@ public class menuFrame extends JFrame implements MenuListener, ActionListener {
 		// TODO Auto-generated method stub
 		if(e.getSource() == insertMenu) {
 			System.out.println("Insert menu\n");
-			if(insertInternalFrame != null) {
-				insertInternalFrame.dispose();
+			if(insertIntFrame != null) {
+				insertIntFrame.dispose();
 			}
-			add(insertInternalFrame = new insertInternalFrame());
+			add(insertIntFrame = new insertIntFrame());
 		}
 		
 		if(e.getSource() == manageMenu) {
@@ -89,7 +89,7 @@ public class menuFrame extends JFrame implements MenuListener, ActionListener {
 			int result = JOptionPane.showConfirmDialog(null, "Are you sure?");
 			if(result == 0) {
 				this.dispose();
-				RegisterPage rf = new RegisterPage();
+				registerPage rf = new registerPage();
 			}
 		}
 	}
