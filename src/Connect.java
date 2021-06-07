@@ -1,9 +1,4 @@
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class Connect {
 
@@ -11,6 +6,7 @@ public class Connect {
 	public Statement stat;
 	public ResultSet rs;
 	public ResultSetMetaData rsm;
+	public PreparedStatement ps;
 	
 	public Connect() {
 		// TODO Auto-generated constructor stub
@@ -61,6 +57,14 @@ public class Connect {
 		}
 	}
 	
-	
+	public PreparedStatement prepareStatement(String query) {
+    	PreparedStatement ps = null;
+    	try {
+			ps = con.prepareStatement(query);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	return ps;
+    }
 
 }
