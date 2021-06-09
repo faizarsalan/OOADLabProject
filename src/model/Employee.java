@@ -20,10 +20,9 @@ public class Employee {
 	private String empUsername;
 	private String empPassword;
 	
-	
-	
-	public Employee(int employeeID, int empRoleID, int positionID, String empName, String empStatus, int salary,
-			String empUsername, String empPassword) {
+
+	public Employee() {
+		// TODO Auto-generated constructor stub
 		super();
 		this.employeeID = employeeID;
 		this.empRoleID = empRoleID;

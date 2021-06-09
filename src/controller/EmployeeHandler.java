@@ -17,8 +17,8 @@ public class EmployeeHandler {
 		return employee.getAll();
 	}
 	
-	public static boolean insertEmployee(String) {
-		if(employeeID.isEmpty()) {
+	public static boolean insertEmployee(int employeeID, int empRoleID, int positionID, String empName, String empStatus, int salary, String empUsername, String empPassword) {
+		if(employeeID) {
 			errorMassage = "ID cannot be empty!";
 			return false;
 		}else if(employeeName.length()<5 || !Character.isUpperCase(employeeName.charAt(0))) {
@@ -37,8 +37,15 @@ public class EmployeeHandler {
 	{
 		Employee employee = new Employee();
 		
-		employee.setInt(employeeID);
-		
+		employee.setEmployeeID(employeeID);
+		employee.setEmployeeRoleID(empRoleID);
+		employee.setPositionID(positionID);
+		employee.setEmployeeName(empName);
+		employee.setEmployeeStatus(empStatus);
+		employee.setSalary(salary);
+		employee.setEmployeeUsername(empUsername);
+		employee.setEmployeePassword(empPassword);
+	
 		
 		
 	}
