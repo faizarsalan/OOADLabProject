@@ -1,6 +1,9 @@
+package model;
 
 import java.sql.PreparedStatement;
 import java.util.*;
+
+import connect.Connect;
 
 public class Product {
 	

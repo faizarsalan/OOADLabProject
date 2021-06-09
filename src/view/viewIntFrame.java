@@ -1,3 +1,4 @@
+package view;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -5,6 +6,10 @@ import java.sql.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+
+import connect.Connect;
+import controller.EmployeeHandler;
+import model.Employee;
 
 public class viewIntFrame extends JInternalFrame implements MouseListener, ActionListener {
 	
@@ -117,6 +122,23 @@ public class viewIntFrame extends JInternalFrame implements MouseListener, Actio
 		table.setModel(dtm);
 	}
 	
+	
+	private void refreshTable() {
+		Object[] column = {"ID", "Name", "Description", "Price", "Stock"};
+		
+		dtm = new DefaultTableModel(column, 0);
+		
+		List<Employee> employee = EmployeeHandler.getAllEmployees();
+		
+		for (Employee employee : employee) {
+			rowData = new List<>();
+			rowData.add(employee.getEmployeeID());
+			
+			dtm.addRow(rowData);
+		}
+		table.setModel(dtm);
+		
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -154,6 +176,5 @@ public class viewIntFrame extends JInternalFrame implements MouseListener, Actio
 		
 	}
 	
-	J
 
 }

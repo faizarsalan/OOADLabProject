@@ -1,5 +1,8 @@
+package model;
 
 import java.util.*;
+
+import connect.Connect;
 
 public class Transaction {
 

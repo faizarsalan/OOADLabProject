@@ -1,6 +1,10 @@
+package main;
 
 
 import java.util.*;
+
+import connect.Connect;
+import view.menuFrame;
 
 public class main {
 	

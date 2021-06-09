@@ -1,5 +1,9 @@
+package model;
 
 import java.util.*;
+
+import connect.Connect;
+
 import java.sql.*;
 
 public class Employee {
@@ -17,6 +21,20 @@ public class Employee {
 	private String empPassword;
 	
 	
+	
+	public Employee(int employeeID, int empRoleID, int positionID, String empName, String empStatus, int salary,
+			String empUsername, String empPassword) {
+		super();
+		this.employeeID = employeeID;
+		this.empRoleID = empRoleID;
+		this.positionID = positionID;
+		this.empName = empName;
+		this.empStatus = empStatus;
+		this.salary = salary;
+		this.empUsername = empUsername;
+		this.empPassword = empPassword;
+	}
+
 	public Employee insertEmployee() {
 		Employee employee = new Employee();
 		
