@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.*;
 import java.sql.*;
 import java.util.*;
+import java.util.List;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -143,7 +145,26 @@ public class viewIntFrame extends JInternalFrame implements MouseListener, Actio
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		if(e.getSource() == insertButton) {
+			int id = Integer.parseInt(idfield.getText();
+			String name = nameField.getText();
+			String type = typeField.getText();
+			String cuisine = cuisineField.getText();
+			
+			boolean isInserted = EmployeeHandler.insertEmployee(name, type, cuisine);
+			if(isInserted) {
+				refreshTable();
+				idfield.setText("");
+				nameField.setText("");
+				typeField.setText("");
+				cuisineField.setText("");
+				
+				JOptionPane.showMessageDialog(null, "Insert success!");
+			}else {
+				String message = EmployeeHandler.errorMessage;
+				JOptionPane.showMessageDialog(null, message, "Error", JOptionPane. ERROR_MESSAGE);
+			}
+		}
 	}
 
 	@Override

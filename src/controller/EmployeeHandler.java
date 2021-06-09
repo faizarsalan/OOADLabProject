@@ -28,6 +28,8 @@ public class EmployeeHandler {
 		Employee employee = new Employee();
 		employee.setEmployeeID(employeeID);
 		
+		if(!Employee.insert())
+		
 		return employee.insert();
 	}
 }

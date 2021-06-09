@@ -104,6 +104,7 @@ public class Employee {
 		Employee employee = new Employee();
 		try {
 			PreparedStatement ps = con.prepareStatement("UPDATE Employee SET roleID=?, name=?, username=?, salary=?, status=?, password=? WHERE id=?");
+			ResultSet rs = ps.executeQuery();
 			
 			ps.setInt(1, empRoleID);
 			ps.setString(2, empName);
@@ -185,5 +186,23 @@ public class Employee {
 	public void setPositionID(int positionID) {
 		this.positionID = positionID;
 	}
+	
+	public List<Employee> getAll(){
+		List<Employee> employee = new List<>();
+		
+		try {
+			PreparedStatement ps = Connect.getInstance().prepared
+		}
+		
+		}
+	
+	public boolean insert() {
+		PreparedStatement ps = Connect.getInstance().prepareStatement("INSERT INTO Employee VALUES");
+		ps.setString(parameterIndex, x);
+		
+		ps.executeUpdate();
+		
+	}
+	
 	
 }
