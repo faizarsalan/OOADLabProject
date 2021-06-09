@@ -32,4 +32,19 @@ public class EmployeeHandler {
 		
 		return employee.insert();
 	}
+	
+	public static boolean updateEmployee()
+	{
+		Employee employee = new Employee();
+		
+		employee.setInt(employeeID);
+		
+		
+		
+	}
+	
+	public static boolean deleteEmployee(int employeeID) {
+		Employee employee = new Employee();
+		
+	}
 }

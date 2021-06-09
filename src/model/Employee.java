@@ -48,6 +48,14 @@ public class Employee {
 		return employee;
 	}
 	
+	public boolean insert() {
+		PreparedStatement ps = Connect.getInstance().prepareStatement("INSERT INTO Employee VALUES");
+		ps.setString(parameterIndex, x);
+		
+		ps.executeUpdate();
+		
+	}
+	
 	public static List<Employee> getAllEmployees() {
 		
 		List<Employee> listEmployee = new ArrayList<Employee>();
@@ -117,6 +125,11 @@ public class Employee {
 			return null;
 		}
 		return employee;
+	}
+	
+	public boolean update() {
+		PreparedStatement ps = Connect.getInstance().prepareStatement("UPDATE Employee SET roleID=?, name=?, username=?, salary=?, status=?, password=? WHERE id=?");
+		ps.setInt(1, employeeID);
 	}
 	
 	public boolean fireEmployee(int employeeID) {
@@ -196,13 +209,7 @@ public class Employee {
 		
 		}
 	
-	public boolean insert() {
-		PreparedStatement ps = Connect.getInstance().prepareStatement("INSERT INTO Employee VALUES");
-		ps.setString(parameterIndex, x);
-		
-		ps.executeUpdate();
-		
-	}
+
 	
 	
 }

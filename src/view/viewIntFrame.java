@@ -165,6 +165,30 @@ public class viewIntFrame extends JInternalFrame implements MouseListener, Actio
 				JOptionPane.showMessageDialog(null, message, "Error", JOptionPane. ERROR_MESSAGE);
 			}
 		}
+		
+		
+		else if(e.getSource() == updateButton) {
+			int employeeID = idField.getText();
+			
+			
+			if(EmployeeHandler.updateEmployee(emp)) {
+				refreshTable();
+				
+				idField.setText("");
+				
+				JOptionPane.showMessageDialog(null, "Update success!");
+			}else {
+				JOptionPane.showMessageDialog(null, EmployeeHandler.errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		
+		else if(e.getSource() == deleteButton) {
+			String id = idField.getText();
+			
+			if(EmployeeHandler.deleteEmployee(id)) {
+				
+			}
+		}
 	}
 
 	@Override
