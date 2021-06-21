@@ -108,7 +108,7 @@ public class productView extends JInternalFrame implements MouseListener, Action
 				
 				
 				System.out.println("insert Clicked");
-				JOptionPane.showMessageDialog(null, "Insert Successful");
+				JOptionPane.showMessageDialog(null, "Insert Successful!");
 
 				refreshTable();	
 			}
