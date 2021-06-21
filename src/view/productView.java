@@ -55,7 +55,6 @@ public class productView extends JInternalFrame implements MouseListener, Action
 		
 		table.addMouseListener(new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("Table Clicked");
 				id.setText(table.getValueAt(table.getSelectedRow(),0).toString());
 				name.setText(table.getValueAt(table.getSelectedRow(),1).toString());
 				desc.setText(table.getValueAt(table.getSelectedRow(),2).toString());
@@ -68,11 +67,11 @@ public class productView extends JInternalFrame implements MouseListener, Action
 		
 		northPanel.add(scrollPane);
 		
-//		southPanel.add(id);
-//		southPanel.add(name);
-//		southPanel.add(desc);
-//		southPanel.add(price);
-//		southPanel.add(stock);
+		southPanel.add(id);
+		southPanel.add(name);
+		southPanel.add(desc);
+		southPanel.add(price);
+		southPanel.add(stock);
 		
 		northPanel.add(scrollPane);
 //		centerPanel.add(id);
@@ -155,13 +154,13 @@ public class productView extends JInternalFrame implements MouseListener, Action
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
-		if(arg0.getSource() == insertBtn) {
+		if(arg0.getSource().equals(insertBtn)) {
 			String name = nameField.getText();
 			String description = descField.getText();
 			int price = Integer.parseInt(priceField.getText());
 			int stock = Integer.parseInt(stockField.getText());
 			
-			String query = String.format("INSERT INTO product(productID, name, description, price, stock) VALUES (null, %s, %s, %d, %d)", name, description, price, stock);
+			String query = String.format("INSERT INTO product(productID, name, description, price, stock) VALUES (null, '%s', '%s', %d, %d)", name, description, price, stock);
 			System.out.println(query);
 			con.execUpdate(query);
 			System.out.println("insert Clicked");
@@ -175,6 +174,20 @@ public class productView extends JInternalFrame implements MouseListener, Action
 	@Override
 	public void mouseClicked(MouseEvent arg0) {
 		// TODO Auto-generated method stub
+		if(arg0.getSource().equals(insertBtn)) {
+			String name = nameField.getText();
+			String description = descField.getText();
+			int price = Integer.parseInt(priceField.getText());
+			int stock = Integer.parseInt(stockField.getText());
+			
+			String query = String.format("INSERT INTO product(productID, name, description, price, stock) VALUES (null, '%s', '%s', %d, %d)", name, description, price, stock);
+			System.out.println(query);
+			con.execUpdate(query);
+			System.out.println("insert Clicked");
+			JOptionPane.showMessageDialog(null, "Insert Successful");
+			
+			refreshTable();
+		}
 		
 	}
 
